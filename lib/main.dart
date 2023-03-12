@@ -5,16 +5,27 @@ void main() => runApp(MaterialApp (
     home: Scaffold(
       // Верхний бар
       appBar: AppBar(
-        title: Text("Learning Flutter"),
+        title: const Text("Learning Flutter"),
         // централизуем текст
         centerTitle: true,
+        backgroundColor: Colors.red[600],// При нажатии ctrl + q можно посмотреть палитру цветов
       ),
-      body: Center(
-        child: Text("hello man"),
+      body: const Center(
+        child: Text(
+          "hello man",
+          style: TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold, // полужирный шрифт
+            letterSpacing: 2.0, // интервал между буквами
+            color: Colors.grey,
+            fontFamily: 'IndieFlower', // Шрифт который мы добавили сами из папки fonts
+          ),
+        ),
       ),
       floatingActionButton: FloatingActionButton( // Кнопочка с текстом
-          onPressed: () {  },
-          child: Text("Click")
+          onPressed: () {},
+          child: const Text("Click"),
+        backgroundColor: Colors.red[600],
       ),
     ),
   ));
