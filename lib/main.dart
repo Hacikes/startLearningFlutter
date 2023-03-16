@@ -28,17 +28,10 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.red[600],// При нажатии ctrl + q можно посмотреть палитру цветов
       ),
-      body: const Center(
-        child: Text(
-          "hello man",
-          style: TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold, // полужирный шрифт
-            letterSpacing: 2.0, // интервал между буквами
-            color: Colors.grey,
-            fontFamily: 'IndieFlower', // Шрифт который мы добавили сами из папки fonts
-          ),
-        ),
+      body: Center(
+        // В кавычках можно указать, как локальный путь, так и ссылку
+        // на изображение, если изменить .asset на .network
+        child: Image.asset('assets/1.jpg'),
       ),
       floatingActionButton: FloatingActionButton( // Кнопочка с текстом
         onPressed: () {},
