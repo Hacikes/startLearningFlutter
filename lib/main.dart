@@ -28,15 +28,14 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.red[600],// При нажатии ctrl + q можно посмотреть палитру цветов
       ),
-      body: Center(
-        child: IconButton(
-          onPressed: () {
-            print("You clicked me");
-          },
-          icon: Icon(Icons.alternate_email),
-          color: Colors.amber,
-
-        ),
+      // Контейнер - это обёртка для других виджетов
+      body: Container(
+        // Фон стал серым
+        color: Colors.grey[400],
+        child: Text('hello'),
+        // задаёт размер
+        padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+        margin: EdgeInsets.all(20.0),
       ),
       floatingActionButton: FloatingActionButton( // Кнопочка с текстом
         onPressed: () {},
