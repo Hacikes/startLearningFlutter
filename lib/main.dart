@@ -1,8 +1,26 @@
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp (
-    // Главный экран -> Scaffold виджет
-    home: Scaffold(
+    // Вызываем экран Home
+    home: Home()
+  ));
+
+
+// Виджет без состояния (не изменяемый)
+// Используется для автоматической горячей перезагрузки,
+// после внесённых изменений, а так же возвращает
+// экран Home
+// stless - быстрый шаблон
+
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
+
+
+  @override
+  Widget build(BuildContext context) {
+    return
+      // Главный экран -> Scaffold виджет
+      Scaffold(
       // Верхний бар
       appBar: AppBar(
         title: const Text("Learning Flutter"),
@@ -23,10 +41,10 @@ void main() => runApp(MaterialApp (
         ),
       ),
       floatingActionButton: FloatingActionButton( // Кнопочка с текстом
-          onPressed: () {},
-          child: const Text("Click"),
+        onPressed: () {},
+        child: const Text("Click"),
         backgroundColor: Colors.red[600],
       ),
-    ),
-  ));
-
+    );
+  }
+}
