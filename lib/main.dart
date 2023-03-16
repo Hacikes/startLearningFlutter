@@ -29,13 +29,9 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.red[600],// При нажатии ctrl + q можно посмотреть палитру цветов
       ),
       // Контейнер - это обёртка для других виджетов
-      body: Container(
-        // Фон стал серым
-        color: Colors.grey[400],
-        child: Text('hello'),
-        // задаёт размер
-        padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-        margin: EdgeInsets.all(20.0),
+      body: Padding(
+        padding: EdgeInsets.all(90.0),
+        child: Text('Hello'),
       ),
       floatingActionButton: FloatingActionButton( // Кнопочка с текстом
         onPressed: () {},
