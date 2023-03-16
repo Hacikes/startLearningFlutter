@@ -29,9 +29,12 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.red[600],// При нажатии ctrl + q можно посмотреть палитру цветов
       ),
       body: Center(
-        // В кавычках можно указать, как локальный путь, так и ссылку
-        // на изображение, если изменить .asset на .network
-        child: Image.asset('assets/1.jpg'),
+        // Иконка из Material Design
+        child: Icon(
+          Icons.airport_shuttle,
+          color: Colors.lightBlue,
+          size: 50.0,
+        ),
       ),
       floatingActionButton: FloatingActionButton( // Кнопочка с текстом
         onPressed: () {},
