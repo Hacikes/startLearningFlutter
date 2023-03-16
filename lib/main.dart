@@ -29,11 +29,14 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.red[600],// При нажатии ctrl + q можно посмотреть палитру цветов
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {},
+        child: TextButton(
+          onPressed: () {
+            // Вывод в консоль фразы
+            print('You click me');
+          },
           child: Text('Click me'),
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.lightBlue,
+            backgroundColor: Colors.lightBlue[100],
           ),
         ),
       ),
