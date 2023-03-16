@@ -29,15 +29,13 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.red[600],// При нажатии ctrl + q можно посмотреть палитру цветов
       ),
       body: Center(
-        child: ElevatedButton.icon(
-            onPressed: () {},
-            icon: Icon(
-              Icons.mail
-            ),
-            label: Text('mail me'),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.yellow,
-          ),
+        child: IconButton(
+          onPressed: () {
+            print("You clicked me");
+          },
+          icon: Icon(Icons.alternate_email),
+          color: Colors.amber,
+
         ),
       ),
       floatingActionButton: FloatingActionButton( // Кнопочка с текстом
