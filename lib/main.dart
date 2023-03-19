@@ -5,8 +5,17 @@ void main() => runApp(MaterialApp (
   ));
 
 
-class NinjaCard extends StatelessWidget {
+class NinjaCard extends StatefulWidget {
   const NinjaCard({Key? key}) : super(key: key);
+
+  @override
+  State<NinjaCard> createState() => _NinjaCardState();
+}
+
+class _NinjaCardState extends State<NinjaCard> {
+
+  // Переменные, которые будут меняться в возвращаемом виджете
+  int ninjaLevel = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +29,16 @@ class NinjaCard extends StatelessWidget {
           backgroundColor: Colors.grey[850],
           // Убирает тень на appbar
           elevation: 0.0,
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            // Функция кнопки
+            setState(() {
+              ninjaLevel += 1;
+            });
+          },
+          child: Icon(Icons.add),
+          backgroundColor: Colors.grey[800],
         ),
         body: Padding(
           padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
@@ -67,7 +86,8 @@ class NinjaCard extends StatelessWidget {
               ),
               SizedBox(height: 10.0,), // Коробка используется для того, чтобы увеличить расстояние между виджетами
               Text(
-                '8',
+                // Использование переменной в виджете
+                '$ninjaLevel',
                 style: TextStyle(
                     color: Colors.amberAccent[200],
                     // Интервал между буквами
@@ -100,3 +120,4 @@ class NinjaCard extends StatelessWidget {
       );
   }
 }
+
