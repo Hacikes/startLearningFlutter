@@ -28,24 +28,32 @@ class Home extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.red[600],// При нажатии ctrl + q можно посмотреть палитру цветов
         ),
-        body: Row(
-          // Свойство, отвечающий за выравнивание элементов по горизонтали
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          // Свойство, отвечающий за выравнивание элементов по вертикали
-          crossAxisAlignment: CrossAxisAlignment.start,
+        body: Column(
+          // Выравнивание по главной оси
+          mainAxisAlignment: MainAxisAlignment.end,
+          // Выравнивание по поперечной оси
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
-            Text("Hello, man"),
-            TextButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.lightBlue,
-                ),
-                child: Text('Click me'),
+            Row(
+              children: <Widget>[
+                Text('Hello'),
+                Text(' man'),
+              ],
             ),
             Container(
+              padding: EdgeInsets.all(20.0),
               color: Colors.cyan,
+              child: Text('First container'),
+            ),
+            Container(
               padding: EdgeInsets.all(30.0),
-              child: Text('Text inside contatiner'),
+              color: Colors.pinkAccent,
+              child: Text('Second container'),
+            ),
+            Container(
+              padding: EdgeInsets.all(40.0),
+              color: Colors.amber,
+              child: Text('Third container'),
             ),
           ],
         ),
