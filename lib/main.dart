@@ -41,14 +41,20 @@ class Home extends StatelessWidget {
               ],
             ),
             Container(
-              padding: EdgeInsets.all(20.0),
-              color: Colors.cyan,
-              child: Text('First container'),
-            ),
-            Container(
               padding: EdgeInsets.all(30.0),
               color: Colors.pinkAccent,
-              child: Text('Second container'),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Second container'),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(20.0),
+              color: Colors.cyan,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('First container'),
+              ),
             ),
             Container(
               padding: EdgeInsets.all(40.0),
