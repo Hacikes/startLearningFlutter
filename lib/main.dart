@@ -28,38 +28,36 @@ class Home extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.red[600],// При нажатии ctrl + q можно посмотреть палитру цветов
         ),
-        body: Column(
-          // Выравнивание по главной оси
-          mainAxisAlignment: MainAxisAlignment.end,
-          // Выравнивание по поперечной оси
-          crossAxisAlignment: CrossAxisAlignment.end,
+        body: Row(
           children: <Widget>[
-            Row(
-              children: <Widget>[
-                Text('Hello'),
-                Text(' man'),
-              ],
+            Expanded(
+                child: Image.asset('assets/1.jpg'),
+              flex: 3,
             ),
-            Container(
-              padding: EdgeInsets.all(30.0),
-              color: Colors.pinkAccent,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('Second container'),
+            // Виджет Expanded растягивает контейнер по всей доступной ширине
+            Expanded(
+              flex: 1,
+              child: Container(
+                padding: EdgeInsets.all(30.0),
+                color: Colors.cyan,
+                child: Text('1'),
               ),
             ),
-            Container(
-              padding: EdgeInsets.all(20.0),
-              color: Colors.cyan,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('First container'),
+            Expanded(
+              flex: 1,
+              child: Container(
+                padding: EdgeInsets.all(30.0),
+                color: Colors.pinkAccent,
+                child: Text('2'),
               ),
             ),
-            Container(
-              padding: EdgeInsets.all(40.0),
-              color: Colors.amber,
-              child: Text('Third container'),
+            Expanded(
+              flex: 1,
+              child: Container(
+                padding: EdgeInsets.all(30.0),
+                color: Colors.amber,
+                child: Text('3'),
+              ),
             ),
           ],
         ),
