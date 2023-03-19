@@ -21,23 +21,39 @@ class Home extends StatelessWidget {
     return
       // Главный экран -> Scaffold виджет
       Scaffold(
-      // Верхний бар
-      appBar: AppBar(
-        title: const Text("Learning Flutter"),
-        // централизуем текст
-        centerTitle: true,
-        backgroundColor: Colors.red[600],// При нажатии ctrl + q можно посмотреть палитру цветов
-      ),
-      // Контейнер - это обёртка для других виджетов
-      body: Padding(
-        padding: EdgeInsets.all(90.0),
-        child: Text('Hello'),
-      ),
-      floatingActionButton: FloatingActionButton( // Кнопочка с текстом
-        onPressed: () {},
-        child: const Text("Click"),
-        backgroundColor: Colors.red[600],
-      ),
+        // Верхний бар
+        appBar: AppBar(
+          title: const Text("Learning Flutter"),
+          // централизуем текст
+          centerTitle: true,
+          backgroundColor: Colors.red[600],// При нажатии ctrl + q можно посмотреть палитру цветов
+        ),
+        body: Row(
+          // Свойство, отвечающий за выравнивание элементов по горизонтали
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          // Свойство, отвечающий за выравнивание элементов по вертикали
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text("Hello, man"),
+            TextButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.lightBlue,
+                ),
+                child: Text('Click me'),
+            ),
+            Container(
+              color: Colors.cyan,
+              padding: EdgeInsets.all(30.0),
+              child: Text('Text inside contatiner'),
+            ),
+          ],
+        ),
+        floatingActionButton: FloatingActionButton( // Кнопочка с текстом
+          onPressed: () {},
+          child: const Text("Click"),
+          backgroundColor: Colors.red[600],
+        ),
     );
   }
 }
