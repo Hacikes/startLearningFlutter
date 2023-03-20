@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'quote.dart';
 
 void main() => runApp(MaterialApp (
     home: QuoteList(),
@@ -13,11 +14,14 @@ class QuoteList extends StatefulWidget {
 
 class _QuoteListState extends State<QuoteList> {
 
-  List<String> quotes = [
-  'Life is short. Smile while you still have teeth.',
-  'Live each day as if it’s your last.',
-  'Life is beautiful. Enjoy the ride.'
+  // Используя класс Quote, который мы добавили объявляем цитату и автора
+  List<Quote> quotes = [
+  Quote(text: 'Life is short. Smile while you still have teeth.', author: 'author1'),
+  Quote(text: 'Live each day as if it’s your last.', author: 'author2'),
+  Quote(text: 'Life is beautiful. Enjoy the ride.', author: 'author3')
   ];
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +36,8 @@ class _QuoteListState extends State<QuoteList> {
         // будет просматривать список данных из списка
         // по сути в скобках после map сделали функцию, которая возвращает наш список цитат
         // quote - просто имя, ни с чем не связанное, только для этой функции
-        children: quotes.map((quote) => Text(quote)).toList(), // говорим, что будем просматривать список
+        // чтобы использовать переменную, необходимо делать вот так ('${quote.text}')
+        children: quotes.map((quote) => Text('${quote.text} - ${quote.author}')).toList(), // говорим, что будем просматривать список
       ),
     );
   }
