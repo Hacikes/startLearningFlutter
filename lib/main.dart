@@ -21,6 +21,38 @@ class _QuoteListState extends State<QuoteList> {
   Quote(text: 'Life is beautiful. Enjoy the ride.', author: 'author3')
   ];
 
+   Widget quoteTemplate(quote){
+     return
+        // В данном случае используя виджет Card, мы создали карточки
+       // с цитатами и авторами и задали им свойства
+       Card(
+       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 16.0),
+       child: Padding(
+         padding: const EdgeInsets.all(12.0),
+         child: Column(
+           crossAxisAlignment: CrossAxisAlignment.stretch,
+           children: <Widget>[
+             Text(
+                 quote.text,
+               style: TextStyle(
+                 fontSize: 18.0,
+                 color: Colors.grey[900],
+               ),
+             ),
+             SizedBox(height: 6.0),
+             Text(
+               quote.author,
+               style: TextStyle(
+                 fontSize: 14.0,
+                 color: Colors.grey[900],
+               ),
+             ),
+           ],
+         ),
+       ),
+     );
+   }
+
 
 
   @override
@@ -36,8 +68,8 @@ class _QuoteListState extends State<QuoteList> {
         // будет просматривать список данных из списка
         // по сути в скобках после map сделали функцию, которая возвращает наш список цитат
         // quote - просто имя, ни с чем не связанное, только для этой функции
-        // чтобы использовать переменную, необходимо делать вот так ('${quote.text}')
-        children: quotes.map((quote) => Text('${quote.text} - ${quote.author}')).toList(), // говорим, что будем просматривать список
+        // Мы использовали функцию, написаную ваше
+        children: quotes.map((quote) => quoteTemplate(quote)).toList(), // говорим, что будем просматривать список
       ),
     );
   }
