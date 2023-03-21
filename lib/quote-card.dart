@@ -8,7 +8,7 @@ class QuoteCard extends StatelessWidget {
   final Quote quote;
   final VoidCallback delete;
 
-  //Конструктор
+  //Конструктор так так
   QuoteCard({required this.quote, required this.delete});
 
   @override
