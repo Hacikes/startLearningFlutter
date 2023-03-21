@@ -36,7 +36,15 @@ class _QuoteListState extends State<QuoteList> {
         // будет просматривать список данных из списка
         // по сути в скобках после map сделали функцию, которая возвращает наш список цитат
         // теперь QuoteCard(quote: quote) задаёт функцию, которая вернёт карточки
-        children: quotes.map((quote) => QuoteCard(quote: quote)).toList(), // говорим, что будем просматривать список
+        children: quotes.map((quote) => QuoteCard(
+            quote: quote,
+            delete: () {
+              // Устанавливаем состояние
+              setState(() {
+                quotes.remove(quote);
+              });
+            },
+        )).toList(), // говорим, что будем просматривать список
       ),
     );
   }
