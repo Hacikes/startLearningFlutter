@@ -16,7 +16,7 @@ class _LoadingState extends State<Loading> {
     // В переменной response будет храниться ответ
     // Запрос будет выполняться асинхронно
     Response response = await get(Uri.parse('https://jsonplaceholder.typicode.com/todos/1'));
-    // Декодировали JSON из строки в Map, то есть в массив и всё это мы за писываем в
+    // Декодировали JSON из строки в Map, то есть в объект и всё это мы за писываем в
     // переменную data. По другому мы не сможем вытягивать конкретные пары ключ: значение
     Map data = jsonDecode(response.body);
     print(data);
