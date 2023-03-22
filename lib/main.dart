@@ -5,7 +5,7 @@ import 'package:kekaga/pages/loading.dart';
 
 void main() => runApp(MaterialApp (
   // Первый экран
-  initialRoute: '/home',
+  initialRoute: '/',
   routes: {
       '/': (context) => Loading(),
       '/home': (context) => Home(),
