@@ -11,17 +11,27 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
 
-  void getData () async {
-    // Отправляем GET запрос на ресурс в кавычках
-    // В переменной response будет храниться ответ
-    // Запрос будет выполняться асинхронно
-    Response response = await get(Uri.parse('https://jsonplaceholder.typicode.com/todos/1'));
-    // Декодировали JSON из строки в Map, то есть в объект и всё это мы за писываем в
-    // переменную data. По другому мы не сможем вытягивать конкретные пары ключ: значение
+  void getTime () async {
+    // Делаем запрос на получение времени
+    Response response = await get(Uri.parse('https://www.timeapi.io/api/Time/current/zone?timeZone=Europe/Moscow'));
     Map data = jsonDecode(response.body);
-    print(data);
-    print(data['title']);
+    //print(data);
 
+    // Извлекаем данные
+    String dateTime = data['dateTime'];
+    // Отличие во времени +03:00 типо того
+    // substring выбирает только промежуток символов из того, что пришло
+    String timeZone = data['timeZone'].substring(7,13);
+    //print(dateTime);
+    //print(timeZone);
+
+    // Создать объект даты и локации
+    DateTime now = DateTime.parse(dateTime);
+    //Строка ниже могла бы превратить строку, которую мы получили в число
+    // Закомментил, так как нам не надо переводить переменную timeZone
+    // в int, т.к. она и должна быть String
+    //now = now.add(Duration(hours: int.parse(timeZone)));
+    //print(now);
   }
 
   // Крч эта функция определяет метод initState и вызывается
@@ -34,7 +44,7 @@ class _LoadingState extends State<Loading> {
     // инициализацию состояния виджета.
     super.initState();
     // Вызываем функцию getData, которая имитирует задержку
-    getData();
+    getTime();
     print('Just Text after response');
   }
 
