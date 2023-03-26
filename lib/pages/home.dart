@@ -15,7 +15,13 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
 
-    data = ModalRoute.of(context)!.settings.arguments as Map<dynamic, dynamic>;
+    // С помощью этой штуки полуаем информацию о маршруте наших переменных из класса
+    // WorldTime c экрана choose_location, места, которое выделено
+    // *************************************
+    // Делаем проверку, чтобы данные не были пустыми при обновлении данных
+    // если данные не пусты, то мы берём их из нашего состояния из списка true
+    // если пусты, то возвращаем исходные данные false
+    data = data.isNotEmpty ? data :ModalRoute.of(context)!.settings.arguments as Map<dynamic, dynamic>;
     print(data);
 
     // Устанавливаем фон
@@ -46,9 +52,20 @@ class _HomeState extends State<Home> {
               child: Column(
                 children: <Widget>[
                   TextButton.icon(
-                      onPressed: () {
+                      onPressed: () async {
                         // Функция перехода на другие экраны
-                        Navigator.pushNamed(context, '/location');
+                        // в общем в result будет сохранятся список с локациями
+                        dynamic result = await Navigator.pushNamed(context, '/location');
+                        // Устанавливаем маппинг того, что обновится из списка, который сохранён в result
+                        // обновляем данные по сути
+                        setState(() {
+                          data = {
+                            'time': result["time"],
+                            'location': result['location'],
+                            'isDayTime': result['isDayTime'],
+                            'flag': result['flag'],
+                          };
+                        });
                       },
                       icon: Icon(
                           Icons.edit_location,

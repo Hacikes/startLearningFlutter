@@ -21,6 +21,21 @@ class _ChooseLocationState extends State<ChooseLocation> {
   WorldTime(location: 'Warsaw', flag: 'Poland.jpg', url: 'Europe/Warsaw')
   ];
 
+  void updateTime(index) async {
+    // Сохраняем инфу о списке в переменную instance
+    WorldTime instance = locations[index];
+    await instance.getTime();
+    // Переходим Обратно на экран home
+    // Получаем наши переменные из класса WorldTime
+    // *************************************
+    Navigator.pop(context, {
+      'location': instance.location,
+      'flag': instance.flag,
+      'time': instance.time,
+      'isDayTime': instance.isDayTime,
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     print("Build function ran");
@@ -42,7 +57,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
               child: Card(
                 child: ListTile(
                   onTap: () {
-                    print(locations[index].location);
+                    updateTime(index);
                   },
                   title: Text(locations[index].location),
                   // Загружаем изображения флагов
