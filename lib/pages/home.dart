@@ -8,8 +8,17 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  //Делаем пустую карту для дальнейшего заполнения инфой о времени
+  Map<dynamic,dynamic> data = {};
+
   @override
   Widget build(BuildContext context) {
+
+    data = ModalRoute.of(context)!.settings.arguments as Map<dynamic, dynamic>;
+    print(data);
+
+
     return Scaffold(
       // SafeArea помогает от скрытия чёлкой и
       // прочей лабуды с форм фактором экрана

@@ -13,7 +13,7 @@ class _LoadingState extends State<Loading> {
 
   // До того, пока не прошёл запрос и не появилось время будет надпись
   // Loading
-  String time = 'Loading';
+
 
   // Крч эта функция определяет метод initState и вызывается
   // в момент добавления виджета на экран
@@ -29,10 +29,15 @@ class _LoadingState extends State<Loading> {
       // Вызываем нами написанную функцию getTime, которая лежит в классе ExmplClass
       // для получения времени
       await ExmplClass.getTime();
-      print(ExmplClass.time);
-      // Устанавливаем состояние
-      setState(() {
-        time = ExmplClass.time;
+      // После вызова времени переходим на домашний экран
+      // Мы как бы заменяем один экран другим методом
+      // pushReplacementNamed, заместо добавления ещё одного экрана
+      // С помощью arguments можем передать переменные класса, получение из этого виджета
+      // на другой экран, в нашем случае на экран Home
+      Navigator.pushReplacementNamed(context, '/home', arguments: {
+        'location': ExmplClass.location,
+        'flag': ExmplClass.flag,
+        'time': ExmplClass.time,
       });
     }
 
@@ -50,7 +55,7 @@ class _LoadingState extends State<Loading> {
     return Scaffold(
       body: Padding(
           padding: EdgeInsets.all(50.0),
-        child: Text(time),
+        child: Text('Loading...'),
       ),
     );
   }
