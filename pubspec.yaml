@@ -41,6 +41,9 @@ dev_dependencies:
     sdk: flutter
   # Добавили пакет http
   http: ^0.13.5
+  # Пакет для форматирования даты
+  # Предоставляет средства интернационализации и локализации, включая перевод сообщений, множественное число и род, форматирование даты / числа и синтаксический анализ, а также двунаправленный текст.
+  intl: ^0.18.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

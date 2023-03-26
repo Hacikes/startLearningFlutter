@@ -25,17 +25,40 @@ class _HomeState extends State<Home> {
       // и он норм работает, гык
       // В прошлый раз не сделал горячуюю перезагрузку
       body: SafeArea (
-          child: Column(
-            children: <Widget>[
-              TextButton.icon(
-                  onPressed: () {
-                    // Функция перехода на другие экраны
-                    Navigator.pushNamed(context, '/location');
-                  },
-                  icon: Icon(Icons.edit_location),
-                  label: Text('Edit location'),
-              ),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 120.0, 0, 0),
+            child: Column(
+              children: <Widget>[
+                TextButton.icon(
+                    onPressed: () {
+                      // Функция перехода на другие экраны
+                      Navigator.pushNamed(context, '/location');
+                    },
+                    icon: Icon(Icons.edit_location),
+                    label: Text('Edit location'),
+                ),
+                SizedBox(height: 20.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      data['location'],
+                      style: TextStyle(
+                        fontSize: 28.0,
+                        letterSpacing: 2.0,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20.0,),
+                Text(
+                  data['time'],
+                  style: TextStyle(
+                      fontSize: 66.0
+                  ),
+                ),
+              ],
+            ),
           ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:http/http.dart';
 import 'dart:convert';
+import 'package:intl/intl.dart';
 
 class WorldTime{
 
@@ -37,7 +38,8 @@ class WorldTime{
       //now = now.add(Duration(hours: int.parse(timeZone)));
 
       // Задаём свойство time
-      time = now.toString();
+      // И форматируем с помощью пакета intl
+      time = DateFormat.jm().format(now);
     }
     // e - переменная, которая ловит ошибки и сохраняет их у себя
 
