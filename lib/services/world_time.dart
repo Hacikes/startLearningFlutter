@@ -8,6 +8,7 @@ class WorldTime{
   late String time; // время в локации // Late используется, т.к. его нужно проинициализировать до его использования
   String flag; // url картинки флага
   String url; // url для локации
+  late bool isDayTime; // Для фона в завимости от ночи или дня
 
   WorldTime({ required this.location, required this.flag, required this.url});
 
@@ -36,13 +37,18 @@ class WorldTime{
       // Закомментил, так как нам не надо переводить переменную timeZone
       // в int, т.к. она и должна быть String
       //now = now.add(Duration(hours: int.parse(timeZone)));
+      //print(now);
+
+      // Условие для фона
+      // Если время > 6 и < 20, тогда true, иначе false
+      isDayTime = now.hour > 6 && now.hour < 20? true : false;
 
       // Задаём свойство time
       // И форматируем с помощью пакета intl
       time = DateFormat.jm().format(now);
     }
-    // e - переменная, которая ловит ошибки и сохраняет их у себя
 
+    // e - переменная, которая ловит ошибки и сохраняет их у себя
     catch(e){
       // В данном случае выведется ошибка в консоль
       print('ERORR: $e');
