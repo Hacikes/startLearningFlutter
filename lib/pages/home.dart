@@ -34,8 +34,16 @@ class _HomeState extends State<Home> {
                       // Функция перехода на другие экраны
                       Navigator.pushNamed(context, '/location');
                     },
-                    icon: Icon(Icons.edit_location),
-                    label: Text('Edit location'),
+                    icon: Icon(
+                        Icons.edit_location,
+                        color: Colors.black,
+                    ),
+                    label: Text(
+                      'Edit location',
+                      style: TextStyle(
+                        color: Colors.black
+                      ),
+                    ),
                 ),
                 SizedBox(height: 20.0),
                 Row(

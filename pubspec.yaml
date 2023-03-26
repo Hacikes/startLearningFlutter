@@ -44,6 +44,8 @@ dev_dependencies:
   # Пакет для форматирования даты
   # Предоставляет средства интернационализации и локализации, включая перевод сообщений, множественное число и род, форматирование даты / числа и синтаксический анализ, а также двунаправленный текст.
   intl: ^0.18.0
+  # Для красивой загрузки
+  flutter_spinkit: ^5.1.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
